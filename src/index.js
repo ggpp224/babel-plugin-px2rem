@@ -6,7 +6,7 @@ export default function ({ types: t }) {
                 exit({ node }) {
                     var valNode = node.value;
                     var keyNode = node.key;
-                    var isAllow = /^padding|^margin|^border|^background|width|height|lineHeight|fontSize/i.test(keyNode.name||keyNode.value);
+                    var isAllow = /^padding|^margin|^background|^width|^height|lineHeight|fontSize|^top|^left|^right|^bottom/i.test(keyNode.name||keyNode.value);
                     var val = valNode.value;
                     if (valNode.type ==='StringLiteral' && /px/.test(val) && isAllow) {
                         valNode.value = val.replace(/(\d+)px/g,function (px) {

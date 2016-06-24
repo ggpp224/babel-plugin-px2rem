@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-px2rem",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "px转化成rem",
   "main": "lib/index.js",
   "scripts": {
