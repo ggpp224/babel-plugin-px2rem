@@ -22,6 +22,18 @@ fontSize,并且属性值中包含 `px` 的值转化为rem
 
 不支持对象中变量的转化, 提供占位函数`_px2rem`对变量处理.
 
+使用之前请先引入`browser-polyfill`
+```js
+//webpack 配置
+    entry =  {
+        main: [
+            'babel-plugin-px2rem/browser-polyfill.js',
+            './src/main.js'
+        ],
+    };
+```
+
+
 **In**
 ```
         const wh = _px2rem('48px');
@@ -30,15 +42,16 @@ fontSize,并且属性值中包含 `px` 的值转化为rem
             "paddingLeft": '75px',
              padding: '6px 10px',
              margin:_px2rem('8px'),
-             fontSize:'24px',
+             fontSize:'12dpx',
              width:wh,
              height:'75px',
-             length:'100px'
+             length:'100px',
+             border: '1rpx'
         };
 ```
 
 
-**Out**
+**Out (dpr=2)**
 
 ```
             var wh = '1.28rem';
@@ -47,10 +60,11 @@ fontSize,并且属性值中包含 `px` 的值转化为rem
                 "paddingLeft": '2rem',
                 padding: '0.16rem 0.26666666666666666rem',
                 margin: '0.21333333333333335rem',
-                fontSize: '0.64rem',
+                fontSize: '24px',
                 width: wh,
                 height: '2rem',
-                length: '100px'
+                length: '100px',
+                border: '1px'
             };
 
 
