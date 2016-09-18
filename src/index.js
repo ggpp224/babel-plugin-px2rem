@@ -21,7 +21,7 @@ export default function ({ types: t }) {
                         }else if(rpxRegExp.test(val)){
                             valNode.value = val.replace(/(\d+)rpx/g, function (px) {
                                 var num = parseFloat(RegExp.$1);
-                                return num + 'px';
+                                return num;
                             });
                         }else if(dpxRegExp.test(val)){
                             var num = val.replace(/(\d+)dpx/g, function (px) {
